@@ -21,11 +21,13 @@ public class StarSystem {
         return planets;
     }
 
-    public void setPlanets(ArrayList<Planet> planets) {
-        this.planets = planets;
-    }
-
-    public void setNeighbourSystems(ArrayList<StarSystem> neighbourSystems) {
-        this.neighbourSystems = neighbourSystems;
+    public Planet getSpecificPlanet(int planetNumber){
+        for (Planet planet:planets
+             ) {
+            if(planet.getPlanetNumber() == planetNumber){
+                return planet;
+            }
+        }
+        return null;
     }
 }
