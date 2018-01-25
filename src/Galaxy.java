@@ -9,4 +9,5 @@ public class Galaxy {
     public ArrayList<StarSystem> getSystems() {
         return systems;
     }
+
 }

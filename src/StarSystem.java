@@ -20,4 +20,12 @@ public class StarSystem {
     public ArrayList<Planet> getPlanets() {
         return planets;
     }
+
+    public void setPlanets(ArrayList<Planet> planets) {
+        this.planets = planets;
+    }
+
+    public void setNeighbourSystems(ArrayList<StarSystem> neighbourSystems) {
+        this.neighbourSystems = neighbourSystems;
+    }
 }
