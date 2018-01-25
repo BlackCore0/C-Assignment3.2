@@ -3,6 +3,7 @@ public class main {
         new main().run();
     }
     public void run(){
+
 //        Galaxy myGalaxy = new Galaxy()
     }
 }

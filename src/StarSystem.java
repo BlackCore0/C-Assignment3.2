@@ -8,4 +8,26 @@ public class StarSystem {
         this.systemName = systemName;
         this.planets = planets;
     }
+
+    public ArrayList<StarSystem> getNeighbourSystems() {
+        return neighbourSystems;
+    }
+
+    public String getSystemName() {
+        return systemName;
+    }
+
+    public ArrayList<Planet> getPlanets() {
+        return planets;
+    }
+
+    public Planet getSpecificPlanet(int planetNumber){
+        for (Planet planet:planets
+             ) {
+            if(planet.getPlanetNumber() == planetNumber){
+                return planet;
+            }
+        }
+        return null;
+    }
 }

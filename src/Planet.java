@@ -15,7 +15,7 @@ public class Planet {
         return neighbours;
     }
 
-    public int getNumber() {
+    public int getPlanetNumber() {
         return number;
     }
 
@@ -30,4 +30,6 @@ public class Planet {
     public void setTravelerHere(boolean travelerHere) {
         this.travelerHere = travelerHere;
     }
+
+
 }
