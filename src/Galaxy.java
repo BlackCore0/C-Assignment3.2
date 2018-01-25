@@ -5,4 +5,8 @@ public class Galaxy {
     public  Galaxy(ArrayList<StarSystem> starSystems){
         this.systems = starSystems;
     }
+
+    public ArrayList<StarSystem> getSystems() {
+        return systems;
+    }
 }
