@@ -36,5 +36,6 @@ public class Galaxy {
         catch (TypeMismatchException tmx){
 
         }
+        return null;
     }
 }
