@@ -12,15 +12,25 @@ public class main {
     public static final String GREEN = "GREEN";
 
 
-    public void run(){
+    public void run() {
         Galaxy galaxy = buildGalaxy();
+        Traveler traveler = new Traveler();
 
-        Planet startingPlanet = galaxy.getSpecificSystem("K").getSpecificPlanet(2);
-        Planet destinationPlanet = galaxy.getSpecificSystem("D").getSpecificPlanet(3);
+        Planet startingPlanet = setPlanet(galaxy, "K", 2);
+        Planet destinationPlanet = setPlanet(galaxy, "D", 3);
 
-        Traveler traveler = new Traveler(startingPlanet,destinationPlanet);
+        System.out.println(traveler.travelToDestination(startingPlanet, destinationPlanet));
 
-        System.out.println(traveler.travelToDestination());
+//          //this is the not reachable version.
+//        startingPlanet = setPlanet(galaxy, "H", 3);
+//        destinationPlanet = setPlanet(galaxy, "A", 5);
+//
+//        System.out.println(traveler.travelToDestination(startingPlanet, destinationPlanet));
+    }
+
+    private Planet setPlanet(Galaxy galaxy, String systemName, int planetNumber) {
+        Planet planet = galaxy.getSpecificSystem(systemName).getSpecificPlanet(planetNumber);
+        return planet;
     }
 
     public Galaxy buildGalaxy() {
@@ -62,52 +72,52 @@ public class main {
         neighbours.add(starSystems.get(3));
         myGalaxy.getSystems().get(0).setNeighbourSystems(neighbours);
 
-        neighbours.clear();
-        neighbours.add(starSystems.get(0));
-        neighbours.add(starSystems.get(3));
-        neighbours.add(starSystems.get(8));
-        myGalaxy.getSystems().get(1).setNeighbourSystems(neighbours);
+        ArrayList<StarSystem> neighbours2 = new ArrayList<>();
+        neighbours2.add(starSystems.get(0));
+        neighbours2.add(starSystems.get(3));
+        neighbours2.add(starSystems.get(8));
+        myGalaxy.getSystems().get(1).setNeighbourSystems(neighbours2);
 
-        neighbours.clear();
-        neighbours.add(starSystems.get(0));
-        neighbours.add(starSystems.get(3));
-        neighbours.add(starSystems.get(4));
-        myGalaxy.getSystems().get(2).setNeighbourSystems(neighbours);
+        ArrayList<StarSystem> neighbours3 = new ArrayList<>();
+        neighbours3.add(starSystems.get(0));
+        neighbours3.add(starSystems.get(3));
+        neighbours3.add(starSystems.get(4));
+        myGalaxy.getSystems().get(2).setNeighbourSystems(neighbours3);
 
-        neighbours.clear();
-        neighbours.add(starSystems.get(0));
-        neighbours.add(starSystems.get(1));
-        neighbours.add(starSystems.get(2));
-        neighbours.add(starSystems.get(5));
-        myGalaxy.getSystems().get(3).setNeighbourSystems(neighbours);
+        ArrayList<StarSystem> neighbours4 = new ArrayList<>();
+        neighbours4.add(starSystems.get(0));
+        neighbours4.add(starSystems.get(1));
+        neighbours4.add(starSystems.get(2));
+        neighbours4.add(starSystems.get(5));
+        myGalaxy.getSystems().get(3).setNeighbourSystems(neighbours4);
 
-        neighbours.clear();
-        neighbours.add(starSystems.get(2));
-        neighbours.add(starSystems.get(5));
-        neighbours.add(starSystems.get(6));
-        myGalaxy.getSystems().get(4).setNeighbourSystems(neighbours);
+        ArrayList<StarSystem> neighbours5 = new ArrayList<>();
+        neighbours5.add(starSystems.get(2));
+        neighbours5.add(starSystems.get(5));
+        neighbours5.add(starSystems.get(6));
+        myGalaxy.getSystems().get(4).setNeighbourSystems(neighbours5);
 
-        neighbours.clear();
-        neighbours.add(starSystems.get(7));
-        neighbours.add(starSystems.get(3));
-        neighbours.add(starSystems.get(4));
-        myGalaxy.getSystems().get(5).setNeighbourSystems(neighbours);
+        ArrayList<StarSystem> neighbours6 = new ArrayList<>();
+        neighbours6.add(starSystems.get(7));
+        neighbours6.add(starSystems.get(3));
+        neighbours6.add(starSystems.get(4));
+        myGalaxy.getSystems().get(5).setNeighbourSystems(neighbours6);
 
-        neighbours.clear();
-        neighbours.add(starSystems.get(7));
-        neighbours.add(starSystems.get(4));
-        myGalaxy.getSystems().get(6).setNeighbourSystems(neighbours);
+        ArrayList<StarSystem> neighbours7 = new ArrayList<>();
+        neighbours7.add(starSystems.get(7));
+        neighbours7.add(starSystems.get(4));
+        myGalaxy.getSystems().get(6).setNeighbourSystems(neighbours7);
 
-        neighbours.clear();
-        neighbours.add(starSystems.get(5));
-        neighbours.add(starSystems.get(6));
-        neighbours.add(starSystems.get(8));
-        myGalaxy.getSystems().get(7).setNeighbourSystems(neighbours);
+        ArrayList<StarSystem> neighbours8 = new ArrayList<>();
+        neighbours8.add(starSystems.get(5));
+        neighbours8.add(starSystems.get(6));
+        neighbours8.add(starSystems.get(8));
+        myGalaxy.getSystems().get(7).setNeighbourSystems(neighbours8);
 
-        neighbours.clear();
-        neighbours.add(starSystems.get(1));
-        neighbours.add(starSystems.get(7));
-        myGalaxy.getSystems().get(8).setNeighbourSystems(neighbours);
+        ArrayList<StarSystem> neighbours9 = new ArrayList<>();
+        neighbours9.add(starSystems.get(1));
+        neighbours9.add(starSystems.get(7));
+        myGalaxy.getSystems().get(8).setNeighbourSystems(neighbours9);
 
         return myGalaxy;
     }
@@ -119,40 +129,40 @@ public class main {
         neighbours.add(2);
         neighbours.add(4);
         ArrayList<Planet> planets = new ArrayList<>();
-        Planet planet1 = new Planet(1,RED,neighbours,system1);
+        Planet planet1 = new Planet(1, RED, neighbours, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        Planet planet2 = new Planet(2,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours2 = new ArrayList<>();
+        neighbours2.add(1);
+        Planet planet2 = new Planet(2, BLUE, neighbours2, system1);
 
-        neighbours.clear();
-        neighbours.add(6);
-        Planet planet3 = new Planet(3,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours3 = new ArrayList<>();
+        neighbours3.add(6);
+        Planet planet3 = new Planet(3, YELLOW, neighbours3, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        Planet planet4 = new Planet(4,RED,neighbours,system1);
+        ArrayList<Integer> neighbours4 = new ArrayList<>();
+        neighbours4.add(1);
+        Planet planet4 = new Planet(4, RED, neighbours4, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet5 = new Planet(5,RED,neighbours,system1);
+        ArrayList<Integer> neighbours5 = new ArrayList<>();
+        neighbours5.add(0);
+        Planet planet5 = new Planet(5, RED, neighbours5, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        neighbours.add(9);
-        Planet planet6 = new Planet(6,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours6 = new ArrayList<>();
+        neighbours6.add(1);
+        neighbours6.add(9);
+        Planet planet6 = new Planet(6, YELLOW, neighbours6, system1);
 
-        neighbours.clear();
-        neighbours.add(8);
-        Planet planet7 = new Planet(7,RED,neighbours,system1);
+        ArrayList<Integer> neighbours7 = new ArrayList<>();
+        neighbours7.add(8);
+        Planet planet7 = new Planet(7, RED, neighbours7, system1);
 
-        neighbours.clear();
-        neighbours.add(7);
-        Planet planet8 = new Planet(8,RED,neighbours,system1);
+        ArrayList<Integer> neighbours8 = new ArrayList<>();
+        neighbours8.add(7);
+        Planet planet8 = new Planet(8, RED, neighbours8, system1);
 
-        neighbours.clear();
-        neighbours.add(6);
-        Planet planet9 = new Planet(9,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours9 = new ArrayList<>();
+        neighbours9.add(6);
+        Planet planet9 = new Planet(9, YELLOW, neighbours9, system1);
 
         planets.add(planet1);
         planets.add(planet2);
@@ -174,39 +184,39 @@ public class main {
         ArrayList<Integer> neighbours = new ArrayList<>();
         neighbours.add(2);
         ArrayList<Planet> planets = new ArrayList<>();
-        Planet planet1 = new Planet(1,RED,neighbours,system1);
+        Planet planet1 = new Planet(1, RED, neighbours, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        Planet planet2 = new Planet(2,RED,neighbours,system1);
+        ArrayList<Integer> neighbours2 = new ArrayList<>();
+        neighbours2.add(1);
+        Planet planet2 = new Planet(2, RED, neighbours2, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet3 = new Planet(3,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours3 = new ArrayList<>();
+        neighbours3.add(0);
+        Planet planet3 = new Planet(3, YELLOW, neighbours3, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet4 = new Planet(4,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours4 = new ArrayList<>();
+        neighbours4.add(0);
+        Planet planet4 = new Planet(4, YELLOW, neighbours4, system1);
 
-        neighbours.clear();
-        neighbours.add(6);
-        Planet planet5 = new Planet(5,RED,neighbours,system1);
+        ArrayList<Integer> neighbours5 = new ArrayList<>();
+        neighbours5.add(6);
+        Planet planet5 = new Planet(5, RED, neighbours5, system1);
 
-        neighbours.clear();
-        neighbours.add(5);
-        Planet planet6 = new Planet(6,RED,neighbours,system1);
+        ArrayList<Integer> neighbours6 = new ArrayList<>();
+        neighbours6.add(5);
+        Planet planet6 = new Planet(6, RED, neighbours6, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet7 = new Planet(7,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours7 = new ArrayList<>();
+        neighbours7.add(0);
+        Planet planet7 = new Planet(7, BLUE, neighbours7, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet8 = new Planet(8,RED,neighbours,system1);
+        ArrayList<Integer> neighbours8 = new ArrayList<>();
+        neighbours8.add(0);
+        Planet planet8 = new Planet(8, RED, neighbours8, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet9 = new Planet(9,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours9 = new ArrayList<>();
+        neighbours9.add(0);
+        Planet planet9 = new Planet(9, GREEN, neighbours9, system1);
 
         planets.add(planet1);
         planets.add(planet2);
@@ -228,42 +238,42 @@ public class main {
         neighbours.add(2);
         neighbours.add(4);
         ArrayList<Planet> planets = new ArrayList<>();
-        Planet planet1 = new Planet(1,RED,neighbours,system1);
+        Planet planet1 = new Planet(1, RED, neighbours, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        neighbours.add(3);
-        Planet planet2 = new Planet(2,RED,neighbours,system1);
+        ArrayList<Integer> neighbours2 = new ArrayList<>();
+        neighbours2.add(1);
+        neighbours2.add(3);
+        Planet planet2 = new Planet(2, RED, neighbours2, system1);
 
-        neighbours.clear();
-        neighbours.add(2);
-        Planet planet3 = new Planet(3,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours3 = new ArrayList<>();
+        neighbours3.add(2);
+        Planet planet3 = new Planet(3, BLUE, neighbours3, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        neighbours.add(7);
-        Planet planet4 = new Planet(4,RED,neighbours,system1);
+        ArrayList<Integer> neighbours4 = new ArrayList<>();
+        neighbours4.add(1);
+        neighbours4.add(7);
+        Planet planet4 = new Planet(4, RED, neighbours4, system1);
 
-        neighbours.clear();
-        neighbours.add(6);
-        neighbours.add(8);
-        Planet planet5 = new Planet(5,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours5 = new ArrayList<>();
+        neighbours5.add(6);
+        neighbours5.add(8);
+        Planet planet5 = new Planet(5, GREEN, neighbours5, system1);
 
-        neighbours.clear();
-        neighbours.add(5);
-        Planet planet6 = new Planet(6,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours6 = new ArrayList<>();
+        neighbours6.add(5);
+        Planet planet6 = new Planet(6, BLUE, neighbours6, system1);
 
-        neighbours.clear();
-        neighbours.add(4);
-        Planet planet7 = new Planet(7,RED,neighbours,system1);
+        ArrayList<Integer> neighbours7 = new ArrayList<>();
+        neighbours7.add(4);
+        Planet planet7 = new Planet(7, RED, neighbours7, system1);
 
-        neighbours.clear();
-        neighbours.add(5);
-        Planet planet8 = new Planet(8,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours8 = new ArrayList<>();
+        neighbours8.add(5);
+        Planet planet8 = new Planet(8, GREEN, neighbours8, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet9 = new Planet(9,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours9 = new ArrayList<>();
+        neighbours9.add(0);
+        Planet planet9 = new Planet(9, YELLOW, neighbours9, system1);
 
         planets.add(planet1);
         planets.add(planet2);
@@ -284,39 +294,39 @@ public class main {
         ArrayList<Integer> neighbours = new ArrayList<>();
         neighbours.add(4);
         ArrayList<Planet> planets = new ArrayList<>();
-        Planet planet1 = new Planet(1,BLUE,neighbours,system1);
+        Planet planet1 = new Planet(1, BLUE, neighbours, system1);
 
-        neighbours.clear();
-        neighbours.add(3);
-        Planet planet2 = new Planet(2,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours2 = new ArrayList<>();
+        neighbours2.add(3);
+        Planet planet2 = new Planet(2, BLUE, neighbours2, system1);
 
-        neighbours.clear();
-        neighbours.add(2);
-        Planet planet3 = new Planet(3,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours3 = new ArrayList<>();
+        neighbours3.add(2);
+        Planet planet3 = new Planet(3, BLUE, neighbours3, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        Planet planet4 = new Planet(4,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours4 = new ArrayList<>();
+        neighbours4.add(1);
+        Planet planet4 = new Planet(4, BLUE, neighbours4, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet5 = new Planet(5,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours5 = new ArrayList<>();
+        neighbours5.add(0);
+        Planet planet5 = new Planet(5, BLUE, neighbours5, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet6 = new Planet(6,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours6 = new ArrayList<>();
+        neighbours6.add(0);
+        Planet planet6 = new Planet(6, BLUE, neighbours6, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet7 = new Planet(7,RED,neighbours,system1);
+        ArrayList<Integer> neighbours7 = new ArrayList<>();
+        neighbours7.add(0);
+        Planet planet7 = new Planet(7, RED, neighbours7, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet8 = new Planet(8,RED,neighbours,system1);
+        ArrayList<Integer> neighbours8 = new ArrayList<>();
+        neighbours8.add(0);
+        Planet planet8 = new Planet(8, RED, neighbours8, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet9 = new Planet(9,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours9 = new ArrayList<>();
+        neighbours9.add(0);
+        Planet planet9 = new Planet(9, YELLOW, neighbours9, system1);
 
         planets.add(planet1);
         planets.add(planet2);
@@ -337,40 +347,40 @@ public class main {
         ArrayList<Integer> neighbours = new ArrayList<>();
         neighbours.add(4);
         ArrayList<Planet> planets = new ArrayList<>();
-        Planet planet1 = new Planet(1,GREEN,neighbours,system1);
+        Planet planet1 = new Planet(1, GREEN, neighbours, system1);
 
-        neighbours.clear();
-        neighbours.add(3);
-        Planet planet2 = new Planet(2,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours2 = new ArrayList<>();
+        neighbours2.add(3);
+        Planet planet2 = new Planet(2, GREEN, neighbours2, system1);
 
-        neighbours.clear();
-        neighbours.add(2);
-        Planet planet3 = new Planet(3,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours3 = new ArrayList<>();
+        neighbours3.add(2);
+        Planet planet3 = new Planet(3, BLUE, neighbours3, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        Planet planet4 = new Planet(4,RED,neighbours,system1);
+        ArrayList<Integer> neighbours4 = new ArrayList<>();
+        neighbours4.add(1);
+        Planet planet4 = new Planet(4, RED, neighbours4, system1);
 
-        neighbours.clear();
-        neighbours.add(6);
-        Planet planet5 = new Planet(5,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours5 = new ArrayList<>();
+        neighbours5.add(6);
+        Planet planet5 = new Planet(5, YELLOW, neighbours5, system1);
 
-        neighbours.clear();
-        neighbours.add(5);
-        neighbours.add(9);
-        Planet planet6 = new Planet(6,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours6 = new ArrayList<>();
+        neighbours6.add(5);
+        neighbours6.add(9);
+        Planet planet6 = new Planet(6, YELLOW, neighbours6, system1);
 
-        neighbours.clear();
-        neighbours.add(8);
-        Planet planet7 = new Planet(7,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours7 = new ArrayList<>();
+        neighbours7.add(8);
+        Planet planet7 = new Planet(7, GREEN, neighbours7, system1);
 
-        neighbours.clear();
-        neighbours.add(7);
-        Planet planet8 = new Planet(8,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours8 = new ArrayList<>();
+        neighbours8.add(7);
+        Planet planet8 = new Planet(8, GREEN, neighbours8, system1);
 
-        neighbours.clear();
-        neighbours.add(6);
-        Planet planet9 = new Planet(9,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours9 = new ArrayList<>();
+        neighbours9.add(6);
+        Planet planet9 = new Planet(9, YELLOW, neighbours9, system1);
 
         planets.add(planet1);
         planets.add(planet2);
@@ -391,42 +401,42 @@ public class main {
         ArrayList<Integer> neighbours = new ArrayList<>();
         neighbours.add(2);
         ArrayList<Planet> planets = new ArrayList<>();
-        Planet planet1 = new Planet(1,BLUE,neighbours,system1);
+        Planet planet1 = new Planet(1, BLUE, neighbours, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        neighbours.add(3);
-        Planet planet2 = new Planet(2,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours2 = new ArrayList<>();
+        neighbours2.add(1);
+        neighbours2.add(3);
+        Planet planet2 = new Planet(2, BLUE, neighbours2, system1);
 
-        neighbours.clear();
-        neighbours.add(2);
-        neighbours.add(6);
-        Planet planet3 = new Planet(3,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours3 = new ArrayList<>();
+        neighbours3.add(2);
+        neighbours3.add(6);
+        Planet planet3 = new Planet(3, GREEN, neighbours3, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet4 = new Planet(4,RED,neighbours,system1);
+        ArrayList<Integer> neighbours4 = new ArrayList<>();
+        neighbours4.add(0);
+        Planet planet4 = new Planet(4, RED, neighbours4, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet5 = new Planet(5,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours5 = new ArrayList<>();
+        neighbours5.add(0);
+        Planet planet5 = new Planet(5, GREEN, neighbours5, system1);
 
-        neighbours.clear();
-        neighbours.add(3);
-        neighbours.add(9);
-        Planet planet6 = new Planet(6,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours6 = new ArrayList<>();
+        neighbours6.add(3);
+        neighbours6.add(9);
+        Planet planet6 = new Planet(6, GREEN, neighbours6, system1);
 
-        neighbours.clear();
-        neighbours.add(8);
-        Planet planet7 = new Planet(7,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours7 = new ArrayList<>();
+        neighbours7.add(8);
+        Planet planet7 = new Planet(7, BLUE, neighbours7, system1);
 
-        neighbours.clear();
-        neighbours.add(7);
-        Planet planet8 = new Planet(8,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours8 = new ArrayList<>();
+        neighbours8.add(7);
+        Planet planet8 = new Planet(8, GREEN, neighbours8, system1);
 
-        neighbours.clear();
-        neighbours.add(6);
-        Planet planet9 = new Planet(9,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours9 = new ArrayList<>();
+        neighbours9.add(6);
+        Planet planet9 = new Planet(9, GREEN, neighbours9, system1);
 
         planets.add(planet1);
         planets.add(planet2);
@@ -447,39 +457,39 @@ public class main {
         ArrayList<Integer> neighbours = new ArrayList<>();
         neighbours.add(0);
         ArrayList<Planet> planets = new ArrayList<>();
-        Planet planet1 = new Planet(1,GREEN,neighbours,system1);
+        Planet planet1 = new Planet(1, GREEN, neighbours, system1);
 
-        neighbours.clear();
-        neighbours.add(3);
-        Planet planet2 = new Planet(2,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours2 = new ArrayList<>();
+        neighbours2.add(3);
+        Planet planet2 = new Planet(2, GREEN, neighbours2, system1);
 
-        neighbours.clear();
-        neighbours.add(2);
-        Planet planet3 = new Planet(3,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours3 = new ArrayList<>();
+        neighbours3.add(2);
+        Planet planet3 = new Planet(3, GREEN, neighbours3, system1);
 
-        neighbours.clear();
-        neighbours.add(5);
-        Planet planet4 = new Planet(4,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours4 = new ArrayList<>();
+        neighbours4.add(5);
+        Planet planet4 = new Planet(4, GREEN, neighbours4, system1);
 
-        neighbours.clear();
-        neighbours.add(4);
-        Planet planet5 = new Planet(5,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours5 = new ArrayList<>();
+        neighbours5.add(4);
+        Planet planet5 = new Planet(5, YELLOW, neighbours5, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet6 = new Planet(6,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours6 = new ArrayList<>();
+        neighbours6.add(0);
+        Planet planet6 = new Planet(6, GREEN, neighbours6, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet7 = new Planet(7,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours7 = new ArrayList<>();
+        neighbours7.add(0);
+        Planet planet7 = new Planet(7, GREEN, neighbours7, system1);
 
-        neighbours.clear();
-        neighbours.add(9);
-        Planet planet8 = new Planet(8,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours8 = new ArrayList<>();
+        neighbours8.add(9);
+        Planet planet8 = new Planet(8, YELLOW, neighbours8, system1);
 
-        neighbours.clear();
-        neighbours.add(8);
-        Planet planet9 = new Planet(9,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours9 = new ArrayList<>();
+        neighbours9.add(8);
+        Planet planet9 = new Planet(9, YELLOW, neighbours9, system1);
 
         planets.add(planet1);
         planets.add(planet2);
@@ -500,40 +510,40 @@ public class main {
         ArrayList<Integer> neighbours = new ArrayList<>();
         neighbours.add(2);
         ArrayList<Planet> planets = new ArrayList<>();
-        Planet planet1 = new Planet(1,YELLOW,neighbours,system1);
+        Planet planet1 = new Planet(1, YELLOW, neighbours, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        neighbours.add(3);
-        Planet planet2 = new Planet(2,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours2 = new ArrayList<>();
+        neighbours2.add(1);
+        neighbours2.add(3);
+        Planet planet2 = new Planet(2, YELLOW, neighbours2, system1);
 
-        neighbours.clear();
-        neighbours.add(2);
-        Planet planet3 = new Planet(3,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours3 = new ArrayList<>();
+        neighbours3.add(2);
+        Planet planet3 = new Planet(3, YELLOW, neighbours3, system1);
 
-        neighbours.clear();
-        neighbours.add(7);
-        Planet planet4 = new Planet(4,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours4 = new ArrayList<>();
+        neighbours4.add(7);
+        Planet planet4 = new Planet(4, YELLOW, neighbours4, system1);
 
-        neighbours.clear();
-        neighbours.add(6);
-        Planet planet5 = new Planet(5,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours5 = new ArrayList<>();
+        neighbours5.add(6);
+        Planet planet5 = new Planet(5, GREEN, neighbours5, system1);
 
-        neighbours.clear();
-        neighbours.add(5);
-        Planet planet6 = new Planet(6,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours6 = new ArrayList<>();
+        neighbours6.add(5);
+        Planet planet6 = new Planet(6, GREEN, neighbours6, system1);
 
-        neighbours.clear();
-        neighbours.add(4);
-        Planet planet7 = new Planet(7,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours7 = new ArrayList<>();
+        neighbours7.add(4);
+        Planet planet7 = new Planet(7, YELLOW, neighbours7, system1);
 
-        neighbours.clear();
-        neighbours.add(9);
-        Planet planet8 = new Planet(8,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours8 = new ArrayList<>();
+        neighbours8.add(9);
+        Planet planet8 = new Planet(8, YELLOW, neighbours8, system1);
 
-        neighbours.clear();
-        neighbours.add(8);
-        Planet planet9 = new Planet(9,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours9 = new ArrayList<>();
+        neighbours9.add(8);
+        Planet planet9 = new Planet(9, BLUE, neighbours9, system1);
 
         planets.add(planet1);
         planets.add(planet2);
@@ -554,42 +564,42 @@ public class main {
         ArrayList<Integer> neighbours = new ArrayList<>();
         neighbours.add(4);
         ArrayList<Planet> planets = new ArrayList<>();
-        Planet planet1 = new Planet(1,YELLOW,neighbours,system1);
+        Planet planet1 = new Planet(1, YELLOW, neighbours, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet2 = new Planet(2,RED,neighbours,system1);
+        ArrayList<Integer> neighbours2 = new ArrayList<>();
+        neighbours2.add(0);
+        Planet planet2 = new Planet(2, RED, neighbours2, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet3 = new Planet(3,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours3 = new ArrayList<>();
+        neighbours3.add(0);
+        Planet planet3 = new Planet(3, YELLOW, neighbours3, system1);
 
-        neighbours.clear();
-        neighbours.add(1);
-        neighbours.add(7);
-        Planet planet4 = new Planet(4,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours4 = new ArrayList<>();
+        neighbours4.add(1);
+        neighbours4.add(7);
+        Planet planet4 = new Planet(4, YELLOW, neighbours4, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet5 = new Planet(5,GREEN,neighbours,system1);
+        ArrayList<Integer> neighbours5 = new ArrayList<>();
+        neighbours5.add(0);
+        Planet planet5 = new Planet(5, GREEN, neighbours5, system1);
 
-        neighbours.clear();
-        neighbours.add(0);
-        Planet planet6 = new Planet(6,RED,neighbours,system1);
+        ArrayList<Integer> neighbours6 = new ArrayList<>();
+        neighbours6.add(0);
+        Planet planet6 = new Planet(6, RED, neighbours6, system1);
 
-        neighbours.clear();
-        neighbours.add(4);
-        neighbours.add(8);
-        Planet planet7 = new Planet(7,YELLOW,neighbours,system1);
+        ArrayList<Integer> neighbours7 = new ArrayList<>();
+        neighbours7.add(4);
+        neighbours7.add(8);
+        Planet planet7 = new Planet(7, YELLOW, neighbours7, system1);
 
-        neighbours.clear();
-        neighbours.add(7);
-        neighbours.add(9);
-        Planet planet8 = new Planet(8,BLUE,neighbours,system1);
+        ArrayList<Integer> neighbours8 = new ArrayList<>();
+        neighbours8.add(7);
+        neighbours8.add(9);
+        Planet planet8 = new Planet(8, BLUE, neighbours8, system1);
 
-        neighbours.clear();
-        neighbours.add(8);
-        Planet planet9 = new Planet(9,RED,neighbours,system1);
+        ArrayList<Integer> neighbours9 = new ArrayList<>();
+        neighbours9.add(8);
+        Planet planet9 = new Planet(9, RED, neighbours9, system1);
 
         planets.add(planet1);
         planets.add(planet2);
