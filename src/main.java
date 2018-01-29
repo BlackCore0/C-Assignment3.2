@@ -13,8 +13,6 @@ public class main {
 
     public void run() {
 
-
-
         ArrayList<ArrayList<Planet>> planetArrays = new ArrayList<>();
 
         for (int i = 0; i < 9; i++) {
