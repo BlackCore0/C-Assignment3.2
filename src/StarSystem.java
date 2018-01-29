@@ -30,4 +30,12 @@ public class StarSystem {
         }
         return null;
     }
+
+    public void setNeighbourSystems(ArrayList<StarSystem> neighbourSystems) {
+        this.neighbourSystems = neighbourSystems;
+    }
+
+    public void setPlanets(ArrayList<Planet> planets) {
+        this.planets = planets;
+    }
 }
