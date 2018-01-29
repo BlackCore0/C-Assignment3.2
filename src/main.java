@@ -11,12 +11,24 @@ public class main {
     public static final String YELLOW = "YELLOW";
     public static final String GREEN = "GREEN";
 
-    public void run() {
+
+    public void run(){
+        Galaxy galaxy = buildGalaxy();
+
+        Planet startingPlanet = galaxy.getSpecificSystem("K").getSpecificPlanet(2);
+        Planet destinationPlanet = galaxy.getSpecificSystem("D").getSpecificPlanet(3);
+
+        Traveler traveler = new Traveler(startingPlanet,destinationPlanet);
+
+        System.out.println(traveler.travelToDestination());
+    }
+
+    public Galaxy buildGalaxy() {
 
         ArrayList<ArrayList<Planet>> planetArrays = new ArrayList<>();
 
         for (int i = 0; i < 9; i++) {
-            planetArrays.add(new ArrayList<>());
+            planetArrays.add(new ArrayList<Planet>());
         }
 
         ArrayList<StarSystem> starSystems = new ArrayList<>();
@@ -96,6 +108,8 @@ public class main {
         neighbours.add(starSystems.get(1));
         neighbours.add(starSystems.get(7));
         myGalaxy.getSystems().get(8).setNeighbourSystems(neighbours);
+
+        return myGalaxy;
     }
 
 
