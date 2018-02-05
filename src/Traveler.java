@@ -1,16 +1,23 @@
 import java.util.ArrayList;
 
+
+/**
+ * this class does not need a constructor as we want to re-use the traveler so it can travel again.
+ */
 public class Traveler {
     private Planet destination;
     ArrayList<Planet> planetsTravelled = new ArrayList<>();
 
-    public Traveler() {
-    }
-
-    public String travelToDestination(Planet currentPlanet, Planet destination) {
+    /**
+     * this method returns a String which makes the true or false into a more user friendly sentence.
+     * @param startingPlanet is the planet the traveler starts.
+     * @param destination is the planet the traveler needs to travel to.
+     * @return
+     */
+    public String travelToDestination(Planet startingPlanet, Planet destination) {
         this.destination = destination;
 
-        boolean route = getRoute(currentPlanet);
+        boolean route = getRoute(startingPlanet);
 
         if(route){
             return "\n\nDestination Reached";
@@ -20,6 +27,14 @@ public class Traveler {
         }
     }
 
+
+    /**
+     * this is a recursive method that determines the fastest route to the destination planet from the first planet
+     * given.
+     * @param planet is the planet given by the method call, it can vary which planet it will be. It can either be the
+     * starting planet or the current planet that it checks.
+     * @return true if the planet is reachable and return false if the planet is not reachable.
+     */
     private boolean getRoute(Planet planet) {
         planetsTravelled.add(planet);
         System.out.println("\n\n*Currently on planet:" + planet.getStarSystem().getSystemName()+planet.getPlanetNumber());
@@ -51,6 +66,11 @@ public class Traveler {
     }
 
 
+    /**
+     * this method returns the planets the traveler can travel to from the current planet.
+     * @param planet is the current planet.
+     * @return a list of planets which the traveler can possibly travel to from this planet.
+     */
     private ArrayList<Planet> getDirectNeighbours(Planet planet) {
         ArrayList<Planet> planets = new ArrayList<>();
         ArrayList<StarSystem> neighbours = planet.getStarSystem().getNeighbourSystems();

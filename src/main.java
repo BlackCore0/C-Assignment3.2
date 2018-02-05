@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+
+/**
+ * this is the main class, it will handle most operations.
+ */
 public class main {
     public static void main(String[] args) {
         new main().run();
@@ -12,6 +16,9 @@ public class main {
     public static final String GREEN = "GREEN";
 
 
+    /**
+     * in this method the program is ran.
+     */
     public void run() {
         Galaxy galaxy = buildGalaxy();
         Traveler traveler = new Traveler();
@@ -28,11 +35,24 @@ public class main {
 //        System.out.println(traveler.travelToDestination(startingPlanet, destinationPlanet));
     }
 
+
+    /**
+     * here we get the position of the planet and return the planet mentioned.
+     * @param galaxy the given galaxy.
+     * @param systemName the name of the given system.
+     * @param planetNumber the position of the planet in the given system.
+     * @return the planet searched for.
+     */
     private Planet setPlanet(Galaxy galaxy, String systemName, int planetNumber) {
         Planet planet = galaxy.getSpecificSystem(systemName).getSpecificPlanet(planetNumber);
         return planet;
     }
 
+
+    /**
+     * Here we build the galaxy according to the assignment.
+     * @return the galaxy build.
+     */
     public Galaxy buildGalaxy() {
 
         ArrayList<ArrayList<Planet>> planetArrays = new ArrayList<>();
@@ -123,6 +143,10 @@ public class main {
     }
 
 
+    /**
+     * this method and the following 8 methods all set the planets in each solarSystem to the right properties.
+     * @param galaxy is the given galaxy.
+     */
     public void addPlanetsForSystem1(Galaxy galaxy) {
         StarSystem system1 = galaxy.getSystems().get(0);
         ArrayList<Integer> neighbours = new ArrayList<>();
