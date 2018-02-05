@@ -1,5 +1,3 @@
-import com.sun.corba.se.impl.io.TypeMismatchException;
-
 import java.util.ArrayList;
 
 public class Galaxy {
@@ -24,18 +22,5 @@ public class Galaxy {
         //if all fails, return null to cause a nullPointer, which is handled in it's respective caller
         return null;
     }
-    public Planet getSpecificPlanetName(String coordinate){
-        try{
-            char systemNameChar =  coordinate.charAt(0);
-            char planetNumberChar = coordinate.charAt(1);
-            String systemName = String.valueOf(systemNameChar);
-            int planetNumber = Integer.parseInt(String.valueOf(planetNumberChar));
-            Planet planet = getSpecificSystem(systemName).getSpecificPlanet(planetNumber);
-            return planet;
-        }
-        catch (TypeMismatchException tmx){
 
-        }
-        return null;
-    }
 }

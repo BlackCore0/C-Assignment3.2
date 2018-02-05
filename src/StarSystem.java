@@ -17,10 +17,6 @@ public class StarSystem {
         return systemName;
     }
 
-    public ArrayList<Planet> getPlanets() {
-        return planets;
-    }
-
     public void setPlanets(ArrayList<Planet> planets) {
         this.planets = planets;
     }

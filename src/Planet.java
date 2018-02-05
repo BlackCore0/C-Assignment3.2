@@ -4,7 +4,6 @@ public class Planet {
     private ArrayList<Integer> neighbours = new ArrayList<>();
     private int number;
     private String color;
-    private boolean travelerHere = false;
     private StarSystem starSystem;
     public Planet(int number, String color, ArrayList<Integer> neighbours, StarSystem starSystem){
         this.starSystem = starSystem;
@@ -24,16 +23,6 @@ public class Planet {
     public String getColor() {
         return color;
     }
-
-    public boolean isTravelerHere() {
-        return travelerHere;
-    }
-
-    public void setTravelerHere(boolean travelerHere) {
-        this.travelerHere = travelerHere;
-    }
-
-
 
     public StarSystem getStarSystem() {
         return starSystem;

@@ -1,4 +1,3 @@
-import javax.print.attribute.standard.Destination;
 import java.util.ArrayList;
 
 public class Traveler {
